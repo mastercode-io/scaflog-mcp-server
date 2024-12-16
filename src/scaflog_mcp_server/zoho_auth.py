@@ -4,8 +4,8 @@ import time
 from typing import Optional
 import httpx
 from pydantic import BaseModel, Field
+from scaflog_mcp_server.zoho_config import ZohoCreatorConfig, API_BASE_URL
 
-from .zoho_config import ZohoCreatorConfig, API_BASE_URL
 
 class TokenInfo(BaseModel):
     """Model for storing token information."""
@@ -13,23 +13,28 @@ class TokenInfo(BaseModel):
     expires_in: int
     created_at: float = Field(default_factory=time.time)
 
+
     @property
     def is_expired(self) -> bool:
         """Check if the token is expired with a 5-minute buffer."""
         return time.time() > (self.created_at + self.expires_in - 300)
 
+
 class ZohoAuth:
     """Handles authentication with Zoho Creator API."""
+
     def __init__(self, config: ZohoCreatorConfig):
         self.config = config
         self._token_info: Optional[TokenInfo] = None
         self._client = httpx.AsyncClient(timeout=30.0)
+
 
     async def get_access_token(self) -> str:
         """Get a valid access token, refreshing if necessary."""
         if not self._token_info or self._token_info.is_expired:
             await self._refresh_token()
         return self._token_info.access_token
+
 
     async def _refresh_token(self) -> None:
         """Refresh the access token using the refresh token."""
@@ -52,6 +57,7 @@ class ZohoAuth:
                 expires_in=data["expires_in"]
             )
 
+
     async def get_authorized_headers(self) -> dict:
         """Get headers with authorization token."""
         token = await self.get_access_token()
@@ -59,6 +65,7 @@ class ZohoAuth:
             "Authorization": f"Bearer {token}",
             "Content-Type": "application/json",
         }
+
 
     async def close(self):
         """Close the HTTP client."""

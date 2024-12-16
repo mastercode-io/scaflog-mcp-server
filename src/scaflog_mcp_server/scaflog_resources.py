@@ -2,7 +2,8 @@
 
 from typing import Dict
 from pydantic import BaseModel, Field
-from .resource_config import FormConfig, ReportConfig, FieldConfig
+from scaflog_mcp_server.models import FormConfig, ReportConfig, FieldConfig
+
 
 class ResourceCategory(BaseModel):
     """Group of related forms and reports."""
@@ -10,6 +11,7 @@ class ResourceCategory(BaseModel):
     description: str
     forms: Dict[str, FormConfig]
     reports: Dict[str, ReportConfig]
+
 
 ZOHO_RESOURCES = {
     "jobs": ResourceCategory(

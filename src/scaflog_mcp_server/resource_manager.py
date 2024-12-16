@@ -2,8 +2,9 @@
 
 from typing import Optional, Dict, List
 from pydantic import BaseModel
-from .scaflog_resources import ZOHO_RESOURCES, ResourceCategory
-from .resource_config import FormConfig, ReportConfig
+from scaflog_mcp_server.models import FieldConfig, FormConfig, ReportConfig, ResourceCategory
+from scaflog_mcp_server.scaflog_resources import ZOHO_RESOURCES
+
 
 class ResourceManager:
     """Manages access to Zoho Creator resources."""
@@ -11,9 +12,11 @@ class ResourceManager:
     def __init__(self):
         self.resources = ZOHO_RESOURCES
 
+
     def get_category(self, category_id: str) -> Optional[ResourceCategory]:
         """Get a resource category by ID."""
         return self.resources.get(category_id)
+
 
     def get_form(self, category_id: str, form_id: str) -> Optional[FormConfig]:
         """Get a form configuration by category and form ID."""
@@ -22,12 +25,14 @@ class ResourceManager:
             return category.forms.get(form_id)
         return None
 
+
     def get_report(self, category_id: str, report_id: str) -> Optional[ReportConfig]:
         """Get a report configuration by category and report ID."""
         category = self.get_category(category_id)
         if category:
             return category.reports.get(report_id)
         return None
+
 
     def list_categories(self) -> List[Dict]:
         """List all available resource categories."""
@@ -39,6 +44,7 @@ class ResourceManager:
             }
             for cat_id, cat in self.resources.items()
         ]
+
 
     def list_forms(self, category_id: str) -> List[Dict]:
         """List all forms in a category."""
@@ -54,6 +60,7 @@ class ResourceManager:
             }
             for form_id, form in category.forms.items()
         ]
+
 
     def list_reports(self, category_id: str) -> List[Dict]:
         """List all reports in a category."""

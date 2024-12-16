@@ -4,6 +4,7 @@ from typing import Optional
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 
+
 class ZohoCreatorConfig(BaseModel):
     """Configuration for Zoho Creator API access."""
     client_id: str = Field(..., description="OAuth client ID")
@@ -12,6 +13,7 @@ class ZohoCreatorConfig(BaseModel):
     organization_id: str = Field(..., description="Zoho organization ID")
     environment: str = Field(default="production", description="Zoho environment (production/sandbox)")
     access_token: Optional[str] = Field(default=None, description="Current access token")
+
 
 def load_config() -> ZohoCreatorConfig:
     """Load configuration from environment variables or .env file."""
@@ -27,6 +29,7 @@ def load_config() -> ZohoCreatorConfig:
         organization_id=os.getenv("ZOHO_ORGANIZATION_ID", ""),
         environment=os.getenv("ZOHO_ENVIRONMENT", "production"),
     )
+
 
 # API endpoints for different environments
 API_BASE_URL = {
