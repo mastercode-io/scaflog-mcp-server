@@ -27,6 +27,15 @@ class ReportConfig(BaseModel):
     fields: Dict[str, FieldConfig]
 
 
+class ResourceConfig(BaseModel):
+    """Resource category configuration."""
+    app_name: str
+    display_name: str
+    description: str
+    forms: Dict[str, FormConfig]
+    reports: Dict[str, ReportConfig]
+
+
 class ResourceCategory(BaseModel):
     """Group of related forms and reports."""
     display_name: str

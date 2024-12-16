@@ -1,0 +1,226 @@
+[
+    {
+        "name": "goscaffold.HTMLReports.runActiveContractsReport",
+        "display_name": "Run Active Contracts Report"
+    },
+    {
+        "name": "goscaffold.Tasks.importCompanyDataSetJSON",
+        "display_name": "Import Company Data Set JSON"
+    },
+    {
+        "name": "goscaffold.HTMLReports.runAllContractsReport",
+        "display_name": "Run All Contracts Report"
+    },
+    {
+        "name": "goscaffold.HTMLReports.collectActiveContractsReport",
+        "display_name": "Collect Active Contracts Report"
+    },
+    {
+        "name": "goscaffold.HTMLReports.runJobPhaseReport",
+        "display_name": "Run Job Phase Report"
+    },
+    {
+        "name": "goscaffold.HTMLReports.runJobActiveContractsReport",
+        "display_name": "Run Job Active Contracts Report"
+    },
+    {
+        "name": "goscaffold.HTMLReports.runJobActivityReport",
+        "display_name": "Run Job Activity Report"
+    },
+    {
+        "name": "goscaffold.HTMLReports.runJobClientContractReport",
+        "display_name": "Run Job Client Contract Report"
+    },
+    {
+        "name": "goscaffold.HTMLReports.getActivityClaim2",
+        "display_name": "Get Activity Claim 2"
+    },
+    {
+        "name": "goscaffold.HTMLReports.runMergedReport",
+        "display_name": "Run Merged Report"
+    },
+    {
+        "name": "goscaffold.Reporting.runReport",
+        "display_name": "Run Report"
+    },
+    {
+        "name": "goscaffold.Messaging.SendInvoiceBackend",
+        "display_name": "Send Invoice Backend"
+    },
+    {
+        "name": "goscaffold.Messaging.SendInvoiceNew",
+        "display_name": "Send Invoice New"
+    },
+    {
+        "name": "goscaffold.Tasks.importPhasesFromJSON",
+        "display_name": "Import Phases From JSON"
+    },
+    {
+        "name": "goscaffold.Tasks.importPhasesFromCSV",
+        "display_name": "Import Phases From CSV"
+    },
+    {
+        "name": "goscaffold.Tasks.saveNoticeResponse",
+        "display_name": "Save Notice Response"
+    },
+    {
+        "name": "goscaffold.ImportBlank.ImportAMainWrapper",
+        "display_name": "Import A Main Wrapper"
+    },
+    {
+        "name": "goscaffold.FormUpdates.updateChecklistServerRepeating",
+        "display_name": "Update Checklist Server Repeating"
+    },
+    {
+        "name": "goscaffold.FormUpdates.updateChecklistServerSingle",
+        "display_name": "Update Checklist Server Single"
+    },
+    {
+        "name": "thisapp.Writer.publishDocument",
+        "display_name": "Publish Document"
+    },
+    {
+        "name": "thisapp.Tasking.checkTaskResult",
+        "display_name": "Check Task Result"
+    },
+    {
+        "name": "goscaffold.FormUpdates.uploadStaffPhotostoFaceMatchWrapper",
+        "display_name": "Upload Staff Photos to Face Match Wrapper"
+    },
+    {
+        "name": "goscaffold.FormUpdates.updateClockingMatchingWrapper",
+        "display_name": "Update Clocking Matching Wrapper"
+    },
+    {
+        "name": "goscaffold.FormUpdates.updateJobPhasesServerWrapper",
+        "display_name": "Update Job Phases Server Wrapper"
+    },
+    {
+        "name": "goscaffold.Tasks.importEzicheqJSON",
+        "display_name": "Import Ezicheq JSON"
+    },
+    {
+        "name": "goscaffold.Tasks.importJobJSON",
+        "display_name": "Import Job JSON"
+    },
+    {
+        "name": "goscaffold.Tasks.importStaffJSON",
+        "display_name": "Import Staff JSON"
+    },
+    {
+        "name": "goscaffold.CSI.syncTaskFromHelpscout",
+        "display_name": "Sync Task From Helpscout"
+    },
+    {
+        "name": "goscaffold.CSI.syncTaskToHelpscout",
+        "display_name": "Sync Task To Helpscout"
+    },
+    {
+        "name": "thisapp.Workflow.await2min",
+        "display_name": "Await 2 Minutes"
+    },
+    {
+        "name": "thisapp.Workflow.await3min",
+        "display_name": "Await 3 Minutes"
+    },
+    {
+        "name": "thisapp.Writer.mergeDocument",
+        "display_name": "Merge Document"
+    },
+    {
+        "name": "thisapp.Writer.getMergedDocument",
+        "display_name": "Get Merged Document"
+    },
+    {
+        "name": "goscaffold.Reporting.getMergeReportsData",
+        "display_name": "Get Merge Reports Data"
+    },
+    {
+        "name": "goscaffold.Reporting.createMergeReportRequest",
+        "display_name": "Create Merge Report Request"
+    },
+    {
+        "name": "goscaffold.Reporting.deliverReport",
+        "display_name": "Deliver Report"
+    },
+    {
+        "name": "goscaffold.myob.syncInvoice",
+        "display_name": "Sync Invoice"
+    },
+    {
+        "name": "goscaffold.xero.syncInvoice",
+        "display_name": "Sync Invoice"
+    },
+    {
+        "name": "goscaffold.Payrolls.updatePreviewSlipServer",
+        "display_name": "Update Preview Slip Server"
+    },
+    {
+        "name": "goscaffold.Payrolls.updatePayAwardsPreviewServer",
+        "display_name": "Update Pay Awards Preview Server"
+    },
+    {
+        "name": "goscaffold.Payrolls.syncPayAwardsToPayrunServer",
+        "display_name": "Sync Pay Awards To Payrun Server"
+    },
+    {
+        "name": "goscaffold.keypay.syncEmployeePayAwards",
+        "display_name": "Sync Employee Pay Awards"
+    },
+    {
+        "name": "goscaffold.keypay.getEmployeeLeave",
+        "display_name": "Get Employee Leave"
+    },
+    {
+        "name": "goscaffold.qb.receiveEvents",
+        "display_name": "Receive Events"
+    },
+    {
+        "name": "thisapp.Tasking.retryTasks",
+        "display_name": "Retry Tasks"
+    },
+    {
+        "name": "goscaffold.xero.receiveEvents",
+        "display_name": "Receive Events"
+    },
+    {
+        "name": "goscaffold.HTMLAlerts.alertemailsserver",
+        "display_name": "Alert Emails Server"
+    },
+    {
+        "name": "goscaffold.xero.importContactsBatch",
+        "display_name": "Import Contacts Batch"
+    },
+    {
+        "name": "goscaffold.Tasks.backgroundTaskManager",
+        "display_name": "Background Task Manager"
+    },
+    {
+        "name": "goscaffold.HTMLReports.getActivityClaimBatch",
+        "display_name": "Get Activity Claim Batch"
+    },
+    {
+        "name": "goscaffold.JSON.getQuoteBatch",
+        "display_name": "Get Quote Batch"
+    },
+    {
+        "name": "thisapp.docs.dmRender",
+        "display_name": "Dm Render"
+    },
+    {
+        "name": "goscaffold.migadu.create100email",
+        "display_name": "Create 100 Email"
+    },
+    {
+        "name": "goscaffold.CSI.updateCompanyUserActivity",
+        "display_name": "Update Company User Activity"
+    },
+    {
+        "name": "goscaffold.Messages.SendQuoteBackend",
+        "display_name": "Send Quote Backend"
+    },
+    {
+        "name": "goscaffold.Payrolls.syncXeroTimesheetsNZBulk",
+        "display_name": "Sync Xero Timesheets NZ Bulk"
+    }
+]

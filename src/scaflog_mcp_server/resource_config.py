@@ -11,6 +11,7 @@ class FieldConfig(BaseModel):
 
 class FormConfig(BaseModel):
     """Configuration for a whitelisted form."""
+    app_name: str
     link_name: str
     display_name: str
     description: Optional[str] = None
@@ -18,6 +19,7 @@ class FormConfig(BaseModel):
 
 class ReportConfig(BaseModel):
     """Configuration for a whitelisted report."""
+    app_name: str
     link_name: str
     display_name: str
     description: Optional[str] = None

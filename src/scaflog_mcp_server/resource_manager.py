@@ -1,79 +1,53 @@
-# src_scaflog_zoho_mcp_server/resource_manager.py
+# src/scaflog_mcp_server/resource_manager.py
 
-from typing import Optional, Dict, List
-from pydantic import BaseModel
-from scaflog_mcp_server.models import FieldConfig, FormConfig, ReportConfig, ResourceCategory
-from scaflog_mcp_server.scaflog_resources import ZOHO_RESOURCES
+from typing import Optional, Dict, Any
+from scaflog_mcp_server.config import ConfigLoader
+from scaflog_mcp_server.zoho_client import ZohoClient  # We'll create this later
+from scaflog_mcp_server.environment import EnvironmentManager
+from scaflog_mcp_server import logger
 
 
 class ResourceManager:
-    """Manages access to Zoho Creator resources."""
-    
     def __init__(self):
-        self.resources = ZOHO_RESOURCES
+        self.config = ConfigLoader()
+        self.config.load_resources()
+        self.zoho_client = ZohoClient(self.config)
 
 
-    def get_category(self, category_id: str) -> Optional[ResourceCategory]:
-        """Get a resource category by ID."""
-        return self.resources.get(category_id)
-
-
-    def get_form(self, category_id: str, form_id: str) -> Optional[FormConfig]:
-        """Get a form configuration by category and form ID."""
-        category = self.get_category(category_id)
-        if category:
-            return category.forms.get(form_id)
-        return None
-
-
-    def get_report(self, category_id: str, report_id: str) -> Optional[ReportConfig]:
-        """Get a report configuration by category and report ID."""
-        category = self.get_category(category_id)
-        if category:
-            return category.reports.get(report_id)
-        return None
-
-
-    def list_categories(self) -> List[Dict]:
-        """List all available resource categories."""
-        return [
-            {
-                "id": cat_id,
-                "display_name": cat.display_name,
-                "description": cat.description
+    def validate_job(self, company_id: str, job_number: str) -> Dict[str, Any]:
+        """Validate job exists and get its record ID."""
+        if EnvironmentManager.is_development():
+            logger.info(f"Mocking job validation for {company_id}/{job_number}")
+            return {
+                "record_id": "mock_id",
+                "job_number": job_number,
+                "status": "Active"
             }
-            for cat_id, cat in self.resources.items()
-        ]
-
-
-    def list_forms(self, category_id: str) -> List[Dict]:
-        """List all forms in a category."""
-        category = self.get_category(category_id)
-        if not category:
-            return []
+        job = self.zoho_client.get_job(company_id, job_number)
         
-        return [
-            {
-                "id": form_id,
-                "display_name": form.display_name,
-                "description": form.description
-            }
-            for form_id, form in category.forms.items()
-        ]
+        if not job:
+            raise ValueError(f"Job {job_number} not found")
+            
+        if job["Status"] not in ["Active", "On Hold"]:
+            raise ValueError(f"Job {job_number} is not in valid state for adding phases")
+            
+        return {
+            "record_id": job["Record_ID"],
+            "job_number": job["Job_Number"],
+            "status": job["Status"]
+        }
 
 
-    def list_reports(self, category_id: str) -> List[Dict]:
-        """List all reports in a category."""
-        category = self.get_category(category_id)
-        if not category:
-            return []
-        
-        return [
-            {
-                "id": report_id,
-                "display_name": report.display_name,
-                "description": report.description
-            }
-            for report_id, report in category.reports.items()
-        ]
+    def get_phase_requirements(self) -> Dict[str, Any]:
+        """Get phase creation requirements."""
+        phase_config = self.config.get_resource("phases")
+        if not phase_config:
+            raise ValueError("Phase configuration not found")
+            
+        return phase_config.forms["Requirements"].dict()
+
+
+    def get_task_names(self) -> Dict[str, Any]:
+        """Get available task names."""
+        return self.zoho_client.get_task_names()
     

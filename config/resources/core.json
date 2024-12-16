@@ -1,0 +1,279 @@
+{
+    "jobs": {
+      "app_name": "goscaffold",
+      "display_name": "Jobs",
+      "description": "Job management",
+      "forms": {
+        "Jobs": {
+          "link_name": "Jobs",
+          "display_name": "Jobs",
+          "description": "Job records",
+          "fields": {
+            "ID": {
+              "display_name": "Record ID",
+              "field_type": "text",
+              "required": true
+            },
+            "Job_Quote_Number": {
+              "display_name": "Job (Quote) Number",
+              "description": "Unique job identifier",
+              "field_type": "text",
+              "required": true
+            },
+            "Status": {
+              "display_name": "Status",
+              "field_type": "choice",
+              "required": true,
+              "validation": {
+                "allowed_values": ["Active", "On Hold", "Completed"]
+              }
+            }
+          }
+        }
+      },
+      "reports": {
+        "Jobs_Report": {
+          "link_name": "SysAdmin_ALL_Jobs",
+          "display_name": "Jobs Report",
+          "description": "Job records report",
+          "fields": {
+            "ID": {
+              "display_name": "Record ID",
+              "field_type": "text",
+              "required": true
+            },
+            "Job_Quote_Number": {
+              "display_name": "Job (Quote) Number",
+              "description": "Unique job identifier",
+              "field_type": "text",
+              "required": true
+            },
+            "Status": {
+              "display_name": "Status",
+              "field_type": "choice",
+              "required": true,
+              "validation": {
+                "allowed_values": ["Active", "On Hold", "Completed"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "phases": {
+      "app_name": "goscaffold",
+      "display_name": "Phases",
+      "description": "Phase requirements",
+      "forms": {
+        "Requirements": {
+          "link_name": "Phase_Requirements",
+          "display_name": "Phase Requirements",
+          "fields": {
+            "ID": {
+              "display_name": "Record ID",
+              "field_type": "text",
+              "required": true
+            },
+            "Phase_Name": {
+              "display_name": "Phase Name",
+              "field_type": "text",
+              "required": true
+            },
+            "Phase_Number": {
+              "display_name": "Phase Number",
+              "field_type": "text",
+              "required": true
+            },
+            "Short_Code": {
+              "display_name": "Short Code",
+              "field_type": "text",
+              "required": true
+            },
+            "Phase_Type": {
+              "display_name": "Phase Type",
+              "field_type": "choice",
+              "required": true,
+              "validation": {
+                "allowed_values": ["Construction", "Design", "Planning"]
+              }
+            },
+            "Start_Date": {
+              "display_name": "Start Date",
+              "field_type": "date",
+              "required": true
+            }
+          }
+        }
+      },
+      "reports": {
+        "Phase_Requirements_Report": {
+          "link_name": "SysAdmin_Phases_Report",
+          "display_name": "Phase Report",
+          "description": "Phase records report",
+          "fields": {
+            "ID": {
+              "display_name": "Record ID",
+              "field_type": "text",
+              "required": true
+            }
+          },
+          "Phase_Name": {
+            "display_name": "Phase Name",
+            "field_type": "text",
+            "required": true
+          },
+          "Phase_Number": {
+            "display_name": "Phase Number",
+            "field_type": "text",
+            "required": true
+          },
+          "Short_Code": {
+            "display_name": "Short Code",
+            "field_type": "text",
+            "required": true
+          },
+          "Phase_Type": {
+            "display_name": "Phase Type",
+            "field_type": "choice",
+            "required": true,
+            "validation": {
+              "allowed_values": ["Construction", "Design", "Planning"]
+            }
+          },
+          "Start_Date": {
+            "display_name": "Start Date",
+            "field_type": "date",
+            "required": true
+          }
+        }
+      }
+    },
+    "tasks": {
+      "app_name": "funclib100",
+      "display_name": "Tasks",
+      "description": "Task management",
+      "forms": {
+        "Task_Types": {
+          "link_name": "Task_Scheduler",
+          "display_name": "Task Scheduler",
+          "fields": {
+            "ID": {
+              "display_name": "Record ID",
+              "field_type": "text",
+              "required": false
+            },
+            "Task Name": {
+              "display_name": "Task Name",
+              "field_type": "text",
+              "required": true
+            },
+            "Status": {
+              "display_name": "Status", 
+              "field_type": "choice",
+              "required": false,
+              "validation": {
+                "allowed_values": ["Scheduled", "Launched", "Finished", "Await", "Timeout", "Error"]
+              }
+            },
+            "Start_Time": {
+              "display_name": "Start Time",
+              "field_type": "time",
+              "required": false
+            },
+            "End_Time": {
+              "display_name": "End Time",
+              "field_type": "time",
+              "required": false
+            },
+            "Launch_Time": {
+              "display_name": "Launch Time",
+              "field_type": "time",
+              "required": false
+            },
+            "Counter": {
+              "display_name": "Counter",
+              "field_type": "number",
+              "required": false
+            },
+            "Input_Data": {
+              "display_name": "Input Data",
+              "field_type": "text",
+              "required": true
+            },
+            "Output_Data": {
+              "display_name": "Output Data",
+              "field_type": "text",
+              "required": false
+            },
+            "Task_Result": {
+              "display_name": "Task Result",
+              "field_type": "text",
+              "required": false
+            }
+          }
+        }
+      },
+      "reports": {
+        "Task List": {
+          "link_name": "Task_List",
+          "display_name": "Task List Report",
+          "description": "Task list report",
+          "fields": {
+            "ID": {
+              "display_name": "Record ID",
+              "field_type": "text",
+              "required": true
+            },
+            "Task Name": {
+              "display_name": "Task Name",
+              "field_type": "text",
+              "required": true
+            },
+            "Status": {
+              "display_name": "Status",
+              "field_type": "choice",
+              "required": true,
+              "validation": {
+                "allowed_values": ["Scheduled", "Launched", "Finished", "Await", "Timeout", "Error"]
+              }
+            },
+            "Start_Time": {
+              "display_name": "Start Time",
+              "field_type": "time",
+              "required": true
+            },
+            "End_Time": {
+              "display_name": "End Time",
+              "field_type": "time",
+              "required": false
+            },
+            "Launch_Time": {
+              "display_name": "Launch Time",
+              "field_type": "time",
+              "required": false
+            },
+            "Counter": {
+              "display_name": "Counter",
+              "field_type": "number",
+              "required": true
+            },
+            "Input_Data": {
+              "display_name": "Input Data",
+              "field_type": "text",
+              "required": true
+            },
+            "Output_Data": {
+              "display_name": "Output Data",
+              "field_type": "text",
+              "required": true
+            },
+            "Task_Result": {
+              "display_name": "Task Result",
+              "field_type": "text",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  }
