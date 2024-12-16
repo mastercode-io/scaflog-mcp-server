@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# IDE - PyCharm
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# IDE - Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# IDE - Eclipse
+.project
+.pydevproject
+.settings/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+.eggs/
+*.egg
+
+# Testing
+.coverage
+.tox/
+.pytest_cache/
+htmlcov/
+coverage.xml
+.coverage.*
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# OS specific
+.DS_Store
+Thumbs.db
